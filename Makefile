@@ -29,7 +29,7 @@ LDFLAGS =
 XCFLAGS	= -DTLF_FONTS
 
 # Where to install files
-prefix	= /usr/local
+prefix	= /usr
 
 # Where the executables should be put
 BINDIR	= $(prefix)/bin
