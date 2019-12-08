@@ -1,0 +1,209 @@
+figlet (2.2.5-3) unstable; urgency=low
+
+  * Update S-V to 4.0.0
+    - No changes necessary
+  * debian/{control,copyright}: various fixes found by
+    libconfig-model-dpkg-perl
+  * debian/patches: Fix FTCBFS by defaulting LD to $(CC) (closes: #852785)
+    - Thanks to Helmut Grohne <helmut@subdivi.de> for the patch
+  * debian/figlet.el: apply multiple patches from Kevin Ryde
+    <user42_kevin@yahoo.com.au> (closes: #807293, #807296, #807295)
+  * debian/rules: add hardening=+all to DEB_BUILD_MAINT_OPTIONS
+  * debian/control: minor fixes to package description; s/figlet/FIGlet/g 
+  * Install figlet.el emacs file using dh_installemacsen (closes: #807297)
+  * debian/rules: clean up rules + split into multiple .debhelper files 
+  * Add DEP-8 (autopkgtest) support for upstream test suite 
+
+ -- Jonathan McCrohan <jmccrohan@gmail.com>  Thu, 22 Jun 2017 22:31:46 +0100
+
+figlet (2.2.5-2) unstable; urgency=low
+
+  * Import packaging git repo to collab-maint
+    - Add VCS-{Git,Browser} URLs
+  * debian/copyright: Update WTFPL v2 license text (closes: #694380)
+  * debian/copyright: Update Unicode license text (closes: #694270)
+  * debian/clean: Remove tests.log which caused FTBFS if built twice in a row
+    - Thanks to Roland Stigge <stigge@antcom.de> for the patch
+
+ -- Jonathan McCrohan <jmccrohan@gmail.com>  Sun, 25 Nov 2012 23:59:03 +0000
+
+figlet (2.2.5-1) unstable; urgency=low
+
+  * New upstream release. (closes: #674844) (closes: #617422) (closes: #150174)
+    - figlet has been relicensed as BSD. All undistributable files have either
+      been relicenced, or replaced with properly licenced alternatives; figlet
+      can re-enter the archive, and can move back to main from non-free. \o/
+    - Drop 2.2.2-1 patches, applied upstream
+    - New upstream makefile does not support setting variables from
+      debian/rules; Added makefile_set_debian_{buildflags,paths}.patch
+      accordingly.
+  * Improve packaging
+    - Update S-V to 3.9.3
+    - Bump Debhelper to v9
+    - Switch to dpkg-source 3.0 (quilt) format
+    - Switch to dh-style debian/rules (closes: #672320)
+    - Various lintian fixes
+    - Update package description (closes: #557254)
+    - Update debian/copyright (closes: #436302)
+    - Fix moolets bashism (closes: #530082)
+    - Move figlet manpage to alternatives system (closes: #403665)
+    - Add watchfile
+    - Add Homepage to debian/control
+    - Remove references to deprecated figfonts(-cjk) packages
+    - Remove local copies of man pages (merged upstream)
+  * Add myself as co-maintainer
+
+ -- Jonathan McCrohan <jmccrohan@gmail.com>  Sat, 02 Jun 2012 00:35:22 +0100
+
+figlet (2.2.2-1) unstable; urgency=low
+
+  * New upstream release.  (Closes: #388101)
+    * Does not suggest figlet-fonts.  (Closes: #376176)
+    * chkfont.c: patched to fix nasty core dumps when attempting to read files
+      that are unexpected.  Thanks to Kenneth Davies.  (Closes: #300735)
+    * Include Sandro Tosi's font demonstration script.  (Closes: #388099)
+  * /usr/bin/figlet is an alternative to /usr/bin/figlet-figlet now.  This
+    change was made to pave the way for free figlet clones.  Thanks to Sam
+    Hocevar for the patch.  (Closes: #390549)
+
+ -- Carlos Laviola <claviola@debian.org>  Thu, 26 Oct 2006 23:01:19 -0300
+
+figlet (2.2.1-4) unstable; urgency=high
+
+  * debian/control: forgot to change the binary package's Section from misc to
+    non-free/text.  Really uploading to non-free this time.
+
+ -- Carlos Laviola <claviola@debian.org>  Mon,  1 Nov 2004 15:14:52 -0300
+
+figlet (2.2.1-3) unstable; urgency=high
+
+  * debian/control: changed Section from misc to non-free/text while the
+    problems that land figlet in non-free, as brought up in bug #274950 are
+    being fixed.  (Closes: #274950)
+
+ -- Carlos Laviola <claviola@debian.org>  Sat,  9 Oct 2004 04:01:57 -0300
+
+figlet (2.2.1-2) unstable; urgency=low
+
+  * New maintainer.
+  * Bumped Standards-Version to 3.6.1.1.
+  * Nothing's actually installed in /usr/doc.  (Closes: #190019)
+  * figlet.6: Replaced Ian Chai's e-mail address with the one he used
+    to subscribe to figlet's mailing list.  (Closes: #273063)
+  * debian/control: figlet now Suggests: figfonts{-cjk}.  (Closes: #271474)
+
+ -- Carlos Laviola <claviola@debian.org>  Sat,  2 Oct 2004 01:36:08 -0300
+
+figlet (2.2.1-1) unstable; urgency=low
+
+  * new upstream release closes: Bug#175460
+  * removed obsolete files debian/readme and debian/changes
+  * switched to use debian/manpages
+  * updated chkfont manpage closes: Bug#93311
+  * updated figlist manpage closes: Bug#93312
+  * updated showfigfonts manpage closes: Bug#93313
+  * added a note about the existence of figfonts closes:Bug#185967
+  * set debhelper compatibility mode to 4
+  * changed the build dependency to require debhelper (>= 4)
+  * now standard version 3.5.9.0 compatible
+
+ -- Francesco Tapparo <cesco@debian.org>  Sat,  5 Apr 2003 21:48:42 +0200
+
+figlet (2.2-11) unstable; urgency=low
+
+  * added the manpages of chkfont, figlist and showfigfonts: thanks
+    Jonathon Abbottjed rules
+
+ -- Francesco Tapparo <cesco@debian.org>  Fri, 13 Apr 2001 11:05:54 +0200
+
+figlet (2.2-10) unstable; urgency=low
+
+  * figlet.el was misnamed (this close bug #75721)
+  * figlet now use an improved version of figlet.el (thanks to James
+    LewisMossls)
+  * renamed /usr/share/doc/figlet/changes.txt.gz to
+    /usr/share/doc/figlet/changelog.gz for a better debian policy
+    guidelines adherence
+  * veridied adherence to debian policy 3.2.1.0
+
+ -- Francesco Tapparo <cesco@debian.org>  Sun,  5 Nov 2000 14:31:58 +0100
+
+figlet (2.2-9) unstable; urgency=low
+
+  * converted to debhelper
+  * some tweaks to the upstream Makefile: now it creates $(MANDIR) and it uses
+    install -d and not mkdir, and it creates the /usr/bin directory
+  * renamed changes to changes.txt
+  * moved the dynamically created changes.txt and readme.txt to the
+    debian subdir
+  * package moved to FHS
+  * added showfigfonts, figlist and chkfont to the distribution
+  * recompiled with glibc-2.1 (it was 2.0)
+  * verified compliance to policy 3.0.0.0
+  * changed the Replaces field from figfont (<< 2.2) to figfont
+  * added a Conflicts field against old version of figfonts and
+    figfonts-cjk
+
+ -- Francesco Tapparo <cesco@debian.org>  Mon, 11 Oct 1999 14:44:39 +0200
+
+figlet (2.2-8) unstable; urgency=low
+
+  * updated my email address
+  * the build process is more friendly to the cross compilers now: this close 
+    bug #32189
+
+ -- Francesco Tapparo <cesco@debian.org>  Sun, 25 Apr 1999 21:54:08 +0200
+
+figlet (2.2-7) frozen unstable; urgency=low
+
+  * changed distribution to frozen/unstable
+
+ -- Francesco Tapparo <f.tapparo@vi.nettuno.it>  Sun, 26 Apr 1998 14:09:35 +0200
+
+figlet (2.2-6) unstable; urgency=low
+
+  * move figlet.el to /usr/share/emacs/site-lisp: this solve bug #21219
+
+ -- Francesco Tapparo <f.tapparo@vi.nettuno.it>  Tue, 21 Apr 1998 14:39:15 +0200
+
+figlet (2.2-5) unstable; urgency=low
+
+  * added the emacs helper figlet.el
+  * stripped the binaries (this would resolve the bug #15722)
+
+
+ -- Francesco Tapparo <f.tapparo@vi.nettuno.it>  Sat, 13 Dec 1997 21:02:37 +0100
+
+figlet (2.2-4) unstable; urgency=low
+
+  * moved back to the main distribution
+
+ -- Francesco Tapparo <f.tapparo@vi.nettuno.it>  Sun, 23 Nov 1997 13:42:09 +0100
+
+figlet (2.2-3) unstable; urgency=low
+
+  * now the upstream changelog file is gzipped
+  * verified adherence to debian policy 2.3.0.0
+  * removed bashisms (veryfied with ash and pdksh)
+  * now figlet don't use zipped fonts (for policy problems)
+  * added Replaces figfonts (<< 2.2). This solve bug #13343
+
+ -- Francesco Tapparo <f.tapparo@vi.nettuno.it>  Sat, 25 Oct 1997 14:42:44 +0200
+
+figlet (2.2-2) unstable; urgency=low
+
+  * executable permission to showfigfonts and figlist
+  * used compressed fonts
+  * new maintainer
+
+ -- Francesco Tapparo <f.tapparo@vi.nettuno.it>  Sat, 20 Sep 1997 19:14:27  +0200
+
+figlet (2.2-1) unstable; urgency=low
+
+  * New upstream source
+  * New maintaier
+  * New Standards version (Bug#9466)
+  * New section (non-free)
+
+ -- Martin Schulze <joey@finlandia.infodrom.north.de>  Wed,  3 Sep 1997 21:20:58 +0200
+

@@ -1,0 +1,23 @@
+Source: figlet
+Maintainer: Carlos Laviola <claviola@debian.org>
+Uploaders: Jonathan McCrohan <jmccrohan@gmail.com>
+Section: text
+Priority: optional
+Build-Depends: debhelper (>= 9)
+Standards-Version: 4.0.0
+Vcs-Browser: https://anonscm.debian.org/git/collab-maint/figlet.git
+Vcs-Git: https://anonscm.debian.org/git/collab-maint/figlet.git
+Homepage: http://www.figlet.org/
+
+Package: figlet
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Description: Make large character ASCII banners out of ordinary text
+ FIGlet (Frank, Ian & Glenn's Letters) is a program that creates large
+ characters out of ordinary screen characters.
+ .
+ It can create characters in many different styles and can
+ kern and "smush" these characters together in various ways.  FIGlet
+ output is generally reminiscent of the sort of "signatures" many people
+ like to put at the end of e-mail, Usenet and MOTD messages.

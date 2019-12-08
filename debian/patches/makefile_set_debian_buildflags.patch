@@ -1,0 +1,30 @@
+Description: Set the appropriate Debian buildflags flags in Makefile
+Author: Jonathan McCrohan <jmccrohan@gmail.com>
+Date: Mon, 28 May 2012 00:37:27 +0100
+---
+--- figlet-2.2.4.orig/Makefile
++++ figlet-2.2.4/Makefile
+@@ -19,10 +19,11 @@
+ SHELL = /bin/sh
+ 
+ # The C compiler and linker to use
++CPPFLAGS = $(shell dpkg-buildflags --get CPPFLAGS)
+ CC	= gcc
+-CFLAGS	= -g -O2 -Wall
++CFLAGS	= $(shell dpkg-buildflags --get CFLAGS)
+-LD	= gcc
++LD	= $(CC)
+-LDFLAGS =
++LDFLAGS = $(shell dpkg-buildflags --get LDFLAGS)
+ 
+ # Feature flags:
+ #   define TLF_FONTS to use TOIlet TLF fonts
+@@ -62,7 +63,7 @@ DFILES	= Makefile Makefile.tc $(MANUAL)
+ 	  crc.h inflate.h zipio.h utf8.h run-tests.sh figmagic
+ 
+ .c.o:
+-	$(CC) -c $(CFLAGS) $(XCFLAGS) -DDEFAULTFONTDIR=\"$(DEFAULTFONTDIR)\" \
++	$(CC) -c $(CPPFLAGS) $(CFLAGS) $(XCFLAGS) -DDEFAULTFONTDIR=\"$(DEFAULTFONTDIR)\" \
+ 		-DDEFAULTFONTFILE=\"$(DEFAULTFONTFILE)\" -o $*.o $<
+ 
+ all: $(BINS)

@@ -1,0 +1,22 @@
+Description: Set the appropriate Debian paths in Makefile
+Author: Jonathan McCrohan <jmccrohan@gmail.com>
+Date: Mon, 28 May 2012 00:37:27 +0100
+---
+--- figlet-2.2.4.orig/Makefile
++++ figlet-2.2.4/Makefile
+@@ -30,13 +30,13 @@ LDFLAGS = $(shell dpkg-buildflags --get
+ XCFLAGS	= -DTLF_FONTS
+ 
+ # Where to install files
+-prefix	= /usr/local
++prefix	= /usr
+ 
+ # Where the executables should be put
+ BINDIR	= $(prefix)/bin
+ 
+ # Where the man page should be put
+-MANDIR	= $(prefix)/man
++MANDIR	= $(prefix)/share/man
+ 
+ # Where figlet will search first for fonts (the ".flf" files).
+ DEFAULTFONTDIR = $(prefix)/share/figlet

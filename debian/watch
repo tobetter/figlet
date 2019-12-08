@@ -1,0 +1,2 @@
+version=3
+opts=pasv ftp://ftp.figlet.org/pub/figlet/program/unix/figlet-(.+).tar.gz

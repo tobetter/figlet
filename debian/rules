@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all
+
+# rename figlet to figlet-figlet to free up figlet for alternatives
+override_dh_auto_install:
+	dh_auto_install
+	mv debian/figlet/usr/bin/figlet debian/figlet/usr/bin/figlet-figlet
+
+# rename figlet.6 to figlet-figlet.6 to free up figlet.6 for alternative slave
+override_dh_installman:
+	dh_installman
+	mv debian/figlet/usr/share/man/man6/figlet.6 debian/figlet/usr/share/man/man6/figlet-figlet.6
+
+%:
+	dh $@

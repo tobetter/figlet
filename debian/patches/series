@@ -1,0 +1,2 @@
+makefile_set_debian_buildflags.patch
+makefile_set_debian_paths.patch
